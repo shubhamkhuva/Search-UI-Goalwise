@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Search Task GoalWise</string>
+    <string name="success_msg"> has been successfully added to your dashboard</string>
+    <string name="noresult_msg">Oops!\n No result found, try with different values.</string>
+    <string name="nointernet_msg">Oops! There is no intenet connection.</string>
+    <string name="amount_error1">Amount should not less then Min SIP!</string>
+    <string name="currency">₹</string>
+</resources>

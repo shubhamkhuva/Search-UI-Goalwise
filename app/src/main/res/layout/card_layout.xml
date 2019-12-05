@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="180dp" android:id="@+id/card_single" android:padding="25dp"
+            android:background="@drawable/card_bgw">
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/fundname"
+                android:fontFamily="@font/gotham_rounded_bold" android:textColor="#666666" android:textSize="14sp"
+                android:layout_marginBottom="15dp"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="15dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView
+                        android:text="Min SIP Amount:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_weight="1"
+                        android:fontFamily="@font/gotham_rounded_medium" android:textColor="#999999"
+                        android:textSize="12sp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/sip_amount" android:layout_weight="1"
+                        android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
+                        android:textSize="12sp"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:layout_weight="1">
+                <TextView
+                        android:text="Min SIP Multiple:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:fontFamily="@font/gotham_rounded_medium" android:textColor="#999999"
+                        android:textSize="12sp"/>
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/sip_multiple" android:layout_weight="1"
+                        android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
+                        android:textSize="12sp"/>
+            </LinearLayout>
+        </LinearLayout>
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#e3e4e5" android:layout_marginBottom="15dp"/>
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <TextView
+                    android:text="SIP Dates:"
+                    android:layout_width="70dp"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/gotham_rounded_medium" android:textColor="#999999"
+                    android:textSize="12sp" android:gravity="center_vertical"/>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/sip_dates"
+                        android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
+                        android:textSize="12sp" android:gravity="center_vertical"/>
+                <TextView
+                        android:text=" every month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/gotham_rounded_medium" android:shadowColor="#666666"
+                        android:textSize="12sp" android:gravity="center_vertical"/>
+            </LinearLayout>
+
+            <TextView
+                    android:text="+Add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/addButtonShow"
+                    android:fontFamily="@font/montserrat_semibold" android:textSize="12sp" android:gravity="right"
+                    android:textColor="#3366ff" android:padding="5dp"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="15dp" android:id="@+id/addbuttonui"
+                android:visibility="gone">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:layout_weight="1">
+                <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:inputType="number"
+                        android:ems="10"
+                        android:id="@+id/newsipamount" android:layout_weight="1"
+                        android:background="#f7f7f7" android:hint="Enter SIP amount"
+                        android:fontFamily="@font/gotham_rounded_book" android:textSize="12sp"
+                        android:padding="10dp"/>
+                <Button
+                        android:text="Add Fund"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp" android:id="@+id/addfund" android:layout_weight="1"
+                        android:background="@drawable/buttonui" android:textColor="#fff" android:textSize="12sp"/>
+            </LinearLayout>
+            <TextView
+                    android:text="Invalid amount..!"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/errorText" android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp" android:textColor="@android:color/holo_red_dark"
+                    android:fontFamily="@font/gotham_rounded_book" android:textSize="12sp"
+                    android:visibility="invisible"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
