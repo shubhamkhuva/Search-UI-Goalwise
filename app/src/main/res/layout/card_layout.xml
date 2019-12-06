@@ -29,6 +29,11 @@
                         android:fontFamily="@font/gotham_rounded_medium" android:textColor="#999999"
                         android:textSize="12sp"/>
                 <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham_rounded_medium" android:shadowColor="#666666"/>
+                <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/sip_amount" android:layout_weight="1"
                         android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
@@ -44,6 +49,11 @@
                         android:layout_height="wrap_content" android:layout_weight="1"
                         android:fontFamily="@font/gotham_rounded_medium" android:textColor="#999999"
                         android:textSize="12sp"/>
+                <TextView
+                        android:text="@string/currency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/gotham_rounded_medium" android:shadowColor="#666666"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/sip_multiple" android:layout_weight="1"

@@ -4,5 +4,6 @@
     <string name="noresult_msg">Oops!\n No result found, try with different values.</string>
     <string name="nointernet_msg">Oops! There is no intenet connection.</string>
     <string name="amount_error1">Amount should not less then Min SIP!</string>
+    <string name="amount_error2">Amount should be multiple of Multiple SIP!</string>
     <string name="currency">₹</string>
 </resources>

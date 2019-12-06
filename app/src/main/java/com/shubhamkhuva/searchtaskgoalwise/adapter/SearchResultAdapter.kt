@@ -56,12 +56,21 @@ class SearchResultAdapter(private val mContext: Context, private val CardList: L
             var oldvalueMinSipString = holder.itemView.sip_amount.text.toString()
             oldvalueMinSipString = oldvalueMinSipString.replace("₹ ","")
             val oldvalueMinSipInt = oldvalueMinSipString.toInt()
+
             if(holder.itemView.newsipamount.text.toString().toInt()>=oldvalueMinSipInt){
-                cardlist.addActive = 1
-                holder.itemView.errorText.visibility = View.INVISIBLE
-                listener.openSuccessDialog(holder.itemView.fundname.text.toString(),position)
+                var oldvalueMultiSipString = holder.itemView.sip_multiple.text.toString()
+                oldvalueMultiSipString = oldvalueMultiSipString.replace("₹ ","")
+                val oldvalueMultiSipSInt = oldvalueMultiSipString.toInt()
 
-
+                if (holder.itemView.newsipamount.text.toString().toInt() % oldvalueMultiSipSInt === 0) {
+                    cardlist.addActive = 1
+                    holder.itemView.errorText.visibility = View.INVISIBLE
+                    listener.openSuccessDialog(holder.itemView.fundname.text.toString(),position)
+                }
+                else {
+                    holder.itemView.errorText.text = mContext.resources.getString(R.string.amount_error2)
+                    holder.itemView.errorText.visibility = View.VISIBLE
+                }
             }else{
                 holder.itemView.errorText.text = mContext.resources.getString(R.string.amount_error1)
                 holder.itemView.errorText.visibility = View.VISIBLE
