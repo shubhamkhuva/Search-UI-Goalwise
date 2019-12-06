@@ -32,12 +32,13 @@
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gotham_rounded_medium" android:shadowColor="#666666"/>
+                        android:fontFamily="@font/gotham_rounded_bold"
+                        android:textSize="12sp" android:textColor="#666666"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/sip_amount" android:layout_weight="1"
-                        android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
-                        android:textSize="12sp"/>
+                        android:fontFamily="@font/gotham_rounded_bold"
+                        android:textSize="12sp" android:textColor="#666666"/>
             </LinearLayout>
             <LinearLayout
                     android:orientation="horizontal"
@@ -53,12 +54,13 @@
                         android:text="@string/currency"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/gotham_rounded_medium" android:shadowColor="#666666"/>
+                        android:fontFamily="@font/gotham_rounded_bold"
+                        android:textSize="12sp" android:textColor="#666666"/>
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:id="@+id/sip_multiple" android:layout_weight="1"
-                        android:fontFamily="@font/gotham_rounded_bold" android:shadowColor="#666666"
-                        android:textSize="12sp"/>
+                        android:fontFamily="@font/gotham_rounded_bold"
+                        android:textSize="12sp" android:textColor="#666666"/>
             </LinearLayout>
         </LinearLayout>
         <View

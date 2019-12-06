@@ -80,25 +80,29 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
 
         editSearch.onChange {
             if(it.length>=3){
-                clearResult()
                 callWebService(it)
             }
         }
     }
 
     private fun updateRecentSearch() {
-        val list: ArrayList<String> = ArrayList()
-        val res: Cursor = mydb!!.allData
-        if(res.count>0) {
-            while (res.moveToNext()) {
-                if(res.getString(0)!="") {
-                    if(!list.contains(res.getString(0))) {
-                        list.add(res.getString(0))
+        try {
+            val list: ArrayList<String> = ArrayList()
+            val res: Cursor = mydb!!.allData
+            if (res.count > 0) {
+                while (res.moveToNext()) {
+                    if (res.getString(0) != "") {
+                        if (!list.contains(res.getString(0))) {
+                            list.add(res.getString(0))
+                        }
                     }
                 }
+                val adapter: ArrayAdapter<String> =
+                    ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, list)
+                editSearch.setAdapter(adapter)
             }
-            val adapter:ArrayAdapter<String> = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, list)
-            editSearch.setAdapter(adapter)
+        }catch (e:Exception){
+            e.printStackTrace()
         }
     }
 
@@ -125,6 +129,7 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
             call.enqueue(object : Callback<SearchResultRes> {
                 override fun onResponse(call: Call<SearchResultRes>, response: retrofit2.Response<SearchResultRes>?) {
                     if (response != null) {
+                        clearResult()
                         newSearch = false
                         if(response.body()!!.status.toString().equals("success")) {
                             val list: List<SearchResultPara> = response.body()!!.datas!!
@@ -170,17 +175,27 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
     }
 
     private fun clearResult() {
-        progressBar.visibility = View.VISIBLE
-        noresult.visibility = View.GONE
-        cardList = ArrayList()
-        adapter = SearchResultAdapter(applicationContext, cardList as ArrayList<SearchResultDataAd>,this)
-        searchresult_recycle!!.adapter = adapter
-        adapter!!.notifyDataSetChanged()
+        try {
+            progressBar.visibility = View.VISIBLE
+            noresult.visibility = View.GONE
+            cardList = ArrayList()
+            adapter = SearchResultAdapter(applicationContext, cardList as ArrayList<SearchResultDataAd>, this)
+            searchresult_recycle!!.adapter = adapter
+            adapter!!.notifyDataSetChanged()
+        }
+        catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     fun hideKeyboard(context: Context, view:View) {
-        val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view.windowToken, 0)
+        try {
+            val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+        catch(e:Exception){
+            e.printStackTrace()
+        }
     }
 
     fun AutoCompleteTextView.onChange(cb: (String) -> Unit) {
@@ -191,17 +206,22 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
         })
     }
     public override fun openSuccessDialog(fundname: String?, position: Int) {
-        hideKeyboard(applicationContext,this.viewMain)
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_success, null)
-        val mBuilder = AlertDialog.Builder(this).setView(mDialogView)
-        val  mAlertDialog = mBuilder.show()
-        mAlertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        mAlertDialog.setCanceledOnTouchOutside(false)
-        mAlertDialog.message.setText(fundname+this.resources.getString(R.string.success_msg))
-        mAlertDialog.gotit.setOnClickListener {
-            mAlertDialog.dismiss()
-            this.cardList?.get(position)?.addActive = 0
-            adapter!!.notifyDataSetChanged()
+        try {
+            hideKeyboard(applicationContext, this.viewMain)
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_success, null)
+            val mBuilder = AlertDialog.Builder(this).setView(mDialogView)
+            val mAlertDialog = mBuilder.show()
+            mAlertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            mAlertDialog.setCanceledOnTouchOutside(false)
+            mAlertDialog.message.setText(fundname + this.resources.getString(R.string.success_msg))
+            mAlertDialog.gotit.setOnClickListener {
+                mAlertDialog.dismiss()
+                this.cardList?.get(position)?.addActive = 0
+                adapter!!.notifyDataSetChanged()
+            }
+        }
+        catch (e:Exception){
+            e.printStackTrace()
         }
     }
 }

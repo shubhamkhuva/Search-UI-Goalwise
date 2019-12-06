@@ -31,8 +31,8 @@ class SearchResultAdapter(private val mContext: Context, private val CardList: L
         val cardlist = CardList[position]
         holder.itemView.fundname.text = cardlist.fundname
 
-        holder.itemView.sip_amount.text =  mContext.resources.getString(R.string.currency) +" "+ cardlist.minsipamount
-        holder.itemView.sip_multiple.text = mContext.resources.getString(R.string.currency) +" "+ cardlist.minsipmultiple
+        holder.itemView.sip_amount.text = cardlist.minsipamount.toString()
+        holder.itemView.sip_multiple.text = cardlist.minsipmultiple.toString()
         holder.itemView.sip_dates.text = cardlist.sipupdate
         holder.itemView.addButtonShow.setOnClickListener {
             holder.itemView.addButtonShow.visibility = View.GONE
@@ -53,14 +53,11 @@ class SearchResultAdapter(private val mContext: Context, private val CardList: L
             holder.itemView.card_single.layoutParams = params
         }
         holder.itemView.addfund.setOnClickListener {
-            var oldvalueMinSipString = holder.itemView.sip_amount.text.toString()
-            oldvalueMinSipString = oldvalueMinSipString.replace("₹ ","")
-            val oldvalueMinSipInt = oldvalueMinSipString.toInt()
+
+            val oldvalueMinSipInt = holder.itemView.sip_amount.text.toString().toInt()
 
             if(holder.itemView.newsipamount.text.toString().toInt()>=oldvalueMinSipInt){
-                var oldvalueMultiSipString = holder.itemView.sip_multiple.text.toString()
-                oldvalueMultiSipString = oldvalueMultiSipString.replace("₹ ","")
-                val oldvalueMultiSipSInt = oldvalueMultiSipString.toInt()
+                val oldvalueMultiSipSInt = holder.itemView.sip_multiple.text.toString().toInt()
 
                 if (holder.itemView.newsipamount.text.toString().toInt() % oldvalueMultiSipSInt === 0) {
                     cardlist.addActive = 1
