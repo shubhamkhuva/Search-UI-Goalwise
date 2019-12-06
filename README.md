@@ -6,6 +6,7 @@ Android	Components:
 3.	SQLLite	
 
 ###### Demo
+[**Simply sign up**](https://nextcloud.com/signup/)
 
 Welcome                    |  Main Screen
 :-------------------------:|:-------------------------:
