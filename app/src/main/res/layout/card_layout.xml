@@ -7,8 +7,9 @@
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="180dp" android:id="@+id/card_single" android:padding="25dp"
-            android:background="@drawable/card_bgw">
+            android:layout_height="180dp" android:id="@+id/card_single"
+            android:background="@drawable/card_bgw" android:paddingLeft="35dp" android:paddingTop="25dp"
+            android:paddingRight="35dp" android:paddingBottom="25dp">
         <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/fundname"

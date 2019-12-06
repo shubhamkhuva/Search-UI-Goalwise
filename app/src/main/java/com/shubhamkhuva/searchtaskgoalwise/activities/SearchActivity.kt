@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -75,7 +76,7 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
             hideKeyboard(applicationContext,this.viewMain)
             callWebService(editSearch.text.toString())
         }
-
+        editSearch.setImeOptions(EditorInfo.IME_ACTION_DONE)
         updateRecentSearch()
 
         editSearch.onChange {
@@ -91,9 +92,10 @@ class SearchActivity : AppCompatActivity(),AdapterToActivity {
             val res: Cursor = mydb!!.allData
             if (res.count > 0) {
                 while (res.moveToNext()) {
-                    if (res.getString(0) != "") {
-                        if (!list.contains(res.getString(0))) {
-                            list.add(res.getString(0))
+                    val recString = res.getString(0).trim()
+                    if (recString != "") {
+                        if (!list.contains(recString)) {
+                            list.add(recString)
                         }
                     }
                 }
