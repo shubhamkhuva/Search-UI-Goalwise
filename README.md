@@ -6,7 +6,7 @@ Android	Components:
 3.	SQLLite	
 
 ###### Demo
-[**Simply sign up**](https://nextcloud.com/signup/)
+[**APK Download**](https://github.com/shubhamkhuva/Search-UI-Goalwise/blob/master/demo/Search UI.apk)
 
 Welcome                    |  Main Screen
 :-------------------------:|:-------------------------:
